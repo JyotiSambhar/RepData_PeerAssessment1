@@ -1,8 +1,8 @@
 ---
 title: "CourseraRR-PA1"
-date: "Sunday, May 17, 2015"
 output: html_document
-self_contained: false
+date: "Sunday, May 17, 2015"
+self_contained: no
 ---
 
 **Loading and preprocessing the data**
@@ -11,6 +11,18 @@ self_contained: false
 ```r
 #Include required packages
 library(plyr)
+```
+
+```
+## 
+## Attaching package: 'plyr'
+## 
+## The following object is masked from 'package:lubridate':
+## 
+##     here
+```
+
+```r
 library(lattice)
 ```
 
@@ -40,7 +52,7 @@ AM_Median<-median(AM$steps)
 hist(AM$steps,main="Total Steps taken each day",xlab="Steps")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![plot of chunk Test0](figure/Test0-1.png) 
 
 1) Mean of total number of steps taken per day is 10766.19
 
@@ -61,7 +73,7 @@ maxim<-which.max(AMDaily$steps)
 points(AMDaily[maxim,1],AMDaily[maxim,2],col="red")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![plot of chunk Test1](figure/Test1-1.png) 
 
 On average across all the days in the dataset, 5 minute Interval at 835 contains the maximum number of steps.
 
@@ -86,7 +98,7 @@ AM1_Median<-median(AM1$steps)
 hist(AM1$steps,main="Total Steps taken each day - missing values imputed",xlab="Steps")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 There are total of 2304 missing values in the dataset.
 
@@ -111,6 +123,6 @@ AM1Daily<-aggregate(steps~interval+weekday,AM1Data,mean)
 xyplot(steps~interval|weekday,data=AM1Daily, type="l",xlab="Intervals",ylab="Number of steps",layout=c(1,2))
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 Looking at above plot it is evident that no of steps taken over the weekend are more consistent than on weekday.

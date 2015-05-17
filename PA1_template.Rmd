@@ -1,8 +1,8 @@
 ---
 title: "CourseraRR-PA1"
-date: "Sunday, May 17, 2015"
 output: html_document
-self_contained: false
+date: "Sunday, May 17, 2015"
+self_contained: no
 ---
 
 **Loading and preprocessing the data**
@@ -19,7 +19,7 @@ AMData<-read.csv(url,header=TRUE,sep=",")
 ```
 
 **What is mean total number of steps taken per day?**
-```{r}
+```{r Test0}
 #calculate total no of steps taken each day
 AM<-aggregate(steps~date,AMData,sum)
 
@@ -37,7 +37,7 @@ hist(AM$steps,main="Total Steps taken each day",xlab="Steps")
 
 **What is the average daily activity pattern?**
 
-```{r}
+```{r Test1}
 #get the average no of steps taken each interval
 AMDaily<-aggregate(steps~interval,AMData,mean)
 
